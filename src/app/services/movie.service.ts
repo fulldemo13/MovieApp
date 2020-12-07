@@ -3,13 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export enum SearchType {
-  all = '',
-  movie = 'movie',
-  series = 'series',
-  episode = 'episode'
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -27,11 +20,10 @@ export class MovieService {
   * Get data from the OmdbApi 
   * map the result to return only the results that we need
   * @param {string} title Search Term
-  * @param {SearchType} type movie, series, episode or empty
   * @returns Observable with the search results
   */
-  searchData(title: string, type: SearchType): Observable<any> {
-    return this.http.get(`${this.url}?s=${encodeURI(title)}&type=${type}&apikey=${this.apiKey}`).pipe(
+  searchData(title: string): Observable<any> {
+    return this.http.get(`${this.url}?s=${encodeURI(title)}&apikey=${this.apiKey}`).pipe(
       map(results => results['Search'])
     );
   }

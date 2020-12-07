@@ -1,4 +1,4 @@
-import { MovieService, SearchType } from './../../services/movie.service';
+import { MovieService } from './../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,7 +11,6 @@ export class MoviesPage implements OnInit {
 
   results: Observable<any>;
   searchTerm: string = '';
-  type: SearchType = SearchType.all;
 
   /**
    * Constructor of our first page
@@ -23,6 +22,6 @@ export class MoviesPage implements OnInit {
 
   // Call our service function which returns an Observable
   searchChanged() {
-    this.results = this.movieService.searchData(this.searchTerm, this.type);
+    this.results = this.movieService.searchData(this.searchTerm);
   }
 }
