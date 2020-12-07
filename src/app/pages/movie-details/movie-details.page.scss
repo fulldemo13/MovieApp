@@ -5,6 +5,11 @@
 }
 
 .card {
-	margin: 3% 20%;
 	text-align: center;
+}
+
+@media (min-width: 1028px) {
+	.card {
+		margin: 3% 20%;
+	}
 }

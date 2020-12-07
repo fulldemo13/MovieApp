@@ -6,9 +6,9 @@
 
 <ion-content>
 
-  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" placeholder='Search movie...' class="searchbar"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)" placeholder='Search movie...' class="size"></ion-searchbar>
 
-  <ion-list class="list">
+  <ion-list class="size">
     <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'movies', item.imdbID]">
       <ion-avatar slot="start">
         <img [src]="item.Poster" *ngIf="item.Poster != 'N/A'">
@@ -22,3 +22,7 @@
     </ion-item>
   </ion-list>
 </ion-content>
+
+<ion-footer class="ion-no-border footer">
+    <ion-title>Ferran Ulldemolins - <a href="https://github.com/fulldemo13/Okode_movieAPP">GitHub</a></ion-title>
+</ion-footer>

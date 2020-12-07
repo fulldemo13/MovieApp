@@ -1,9 +1,11 @@
-.searchbar {        
-    margin: 0 auto;
-    width: 70%;
+@media (min-width: 1028px) {
+	.size {        
+		margin: 0 auto;
+		width: 70%;
+	}
 }
 
-.list {
-	margin: 0 auto;
-	width: 70%;
+.footer{
+	text-align: center;
+	height: 50px;
 }

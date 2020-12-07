@@ -7,14 +7,14 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class MovieService {
-  url = 'http://www.omdbapi.com/';
+  url = 'https://www.omdbapi.com/';
   apiKey = 'f60d1d34';
 
   /**
    * Constructor of the Service with Dependency Injection
-   * @param http The standard Angular HttpClient to make requests
+   * @param https The standard Angular HttpsClient to make requests
    */
-  constructor(private http: HttpClient) { }
+  constructor(private https: HttpClient) { }
 
   /**
   * Get data from the OmdbApi 
@@ -23,7 +23,7 @@ export class MovieService {
   * @returns Observable with the search results
   */
   searchData(title: string): Observable<any> {
-    return this.http.get(`${this.url}?s=${encodeURI(title)}&apikey=${this.apiKey}`).pipe(
+    return this.https.get(`${this.url}?s=${encodeURI(title)}&apikey=${this.apiKey}`).pipe(
       map(results => results['Search'])
     );
   }
@@ -34,6 +34,6 @@ export class MovieService {
   * @returns Observable with detailed information
   */
   getDetails(id) {
-    return this.http.get(`${this.url}?i=${id}&plot=full&apikey=${this.apiKey}`);
+    return this.https.get(`${this.url}?i=${id}&plot=full&apikey=${this.apiKey}`);
   }
 }
